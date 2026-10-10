@@ -1,10 +1,10 @@
 @import 'tailwindcss';
 
-@font-face { font-family: "Inter:Regular"; src: url("https://static.figma.com/font/Inter_1") format("woff2"); font-style: normal; font-weight: 400; }
-@font-face { font-family: "Inter:Medium"; src: url("https://static.figma.com/font/Inter_1") format("woff2"); font-style: normal; font-weight: 500; }
-@font-face { font-family: "Inter:Semi Bold"; src: url("https://static.figma.com/font/Inter_1") format("woff2"); font-style: normal; font-weight: 600; }
-@font-face { font-family: "Inter:Bold"; src: url("https://static.figma.com/font/Inter_1") format("woff2"); font-style: normal; font-weight: 700; }
-@font-face { font-family: "Inter:Extra Bold"; src: url("https://static.figma.com/font/Inter_1") format("woff2"); font-style: normal; font-weight: 800; }
+@font-face { font-family: "Inter:Regular"; src: url("./assets/Inter_1.ttf") format("truetype"); font-style: normal; font-weight: 400; }
+@font-face { font-family: "Inter:Medium"; src: url("./assets/Inter_1.ttf") format("truetype"); font-style: normal; font-weight: 500; }
+@font-face { font-family: "Inter:Semi Bold"; src: url("./assets/Inter_1.ttf") format("truetype"); font-style: normal; font-weight: 600; }
+@font-face { font-family: "Inter:Bold"; src: url("./assets/Inter_1.ttf") format("truetype"); font-style: normal; font-weight: 700; }
+@font-face { font-family: "Inter:Extra Bold"; src: url("./assets/Inter_1.ttf") format("truetype"); font-style: normal; font-weight: 800; }
 
 :root {
   --ink: #3d2b1f;
