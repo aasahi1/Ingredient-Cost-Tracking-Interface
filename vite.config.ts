@@ -10,11 +10,12 @@ import siteConfiguration from './.figma/make/site.json' with { type: 'json' }
 export default defineConfig(({ mode }) => {
   // .figma/make/deploy-preview passes `--mode development` for cached-preview builds.
   const emitSourcemaps = mode === 'development'
+  // GitHub Pages serves this project from its repository subpath. The Actions
+  // workflow can override this when Pages is configured for a root/custom domain.
+  const publicBase = process.env.FIGMA_PUBLIC_URL || '/Ingredient-Cost-Tracking-Interface'
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL
-      ? `${process.env.FIGMA_PUBLIC_URL.replace(/\/$/, '')}/`
-      : '/',
+    base: `${publicBase.replace(/\/$/, '')}/`,
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
