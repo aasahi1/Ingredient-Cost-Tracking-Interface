@@ -1,0 +1,303 @@
+[/workspaces/default/code/src/App.tsx#f694]
+220:    </div>
+221:  );
+222:}
+223:
+224:type WorkspaceData = {
+225:  title: string;
+226:  intro: string;
+227:  primaryAction: string;
+228:  pills: string[];
+229:  metrics: { label: string; value: string; detail: string; tone?: string }[];
+230:  notice: string;
+231:  tabs: string[];
+232:  tableTitle: string;
+233:  columns: string[];
+234:  rows: { name: string; detail: string; cells: string[]; status: string; action: string }[];
+235:  sideTitle: string;
+236:  sideIntro: string;
+237:  sideItems: { title: string; detail: string; badge: string; image?: string }[];
+238:};
+239:
+240:const moduleData: Record<string, WorkspaceData> = {
+241:  Overview: {
+242:    title: "Good morning",
+243:    intro: "Your complete view of today’s sales, stock, suppliers, and bills.",
+244:    primaryAction: "Record a new sale",
+245:    pills: ["Monday, Jul 14", "2 urgent actions", "Verifone synced"],
+246:    metrics: [
+247:      { label: "Today’s revenue", value: "$847", detail: "Up 18% from yesterday" },
+248:      { label: "Average order", value: "$5.96", detail: "Weekly average $5.56" },
+249:      { label: "Sell-through", value: "83%", detail: "Strawberry cream is lagging" },
+250:      { label: "Bills due", value: "$354", detail: "2 payments need attention", tone: "danger-text" },
+251:    ],
+252:    notice: "Verifone is fully reconciled. No differences were found in today’s 31 transactions.",
+253:    tabs: ["Today", "This Week", "Needs Attention"],
+254:    tableTitle: "Today’s priorities",
+255:    columns: ["Priority", "Area", "Due", "Value", "Status", "Action"],
+256:    rows: [
+257:      { name: "Use heavy cream", detail: "1.4L remaining · expires tomorrow", cells: ["Inventory", "Today", "$18 at risk"], status: "Urgent", action: "Use now" },
+258:      { name: "FreshCo delivery", detail: "Mango, cream and butter · 18 items", cells: ["Orders", "10–11 AM", "$284.50"], status: "Arriving", action: "View" },
+259:      { name: "Mango supplier deal", detail: "20% off · deal ends Friday", cells: ["Suppliers", "Friday", "Save $24"], status: "Deal", action: "Order" },
+260:      { name: "Strawberry Parfait comeback", detail: "63 customer votes this week", cells: ["Flavor Lab", "This week", "67% margin"], status: "Popular", action: "Create" },
+261:    ],
+262:    sideTitle: "Quick view",
+263:    sideIntro: "The most useful information for your next decision.",
+264:    sideItems: [
+265:      { title: "Mango Yuzu Parfait", detail: "97% sold through · 34 sold today", badge: "Trending", image: "parfait-mango.jpg" },
+266:      { title: "Heavy cream", detail: "Use before tomorrow", badge: "Use first" },
+267:      { title: "SweetRoot bill", detail: "$158 · four days overdue", badge: "Pay now" },
+268:    ],
+269:  },
+270:  "Flavor Lab": {
+271:    title: "Flavor Lab",
+272:    intro: "Turn discounted and near-expiry ingredients into profitable weekly specials.",
+273:    primaryAction: "Create a new flavor",
+274:    pills: ["Week 24 special active", "124 customer votes", "3 smart suggestions"],
+275:    metrics: [
+276:      { label: "Projected margin", value: "71%", detail: "Target is 65% or higher" },
+277:      { label: "Estimated demand", value: "48/day", detail: "Based on customer votes" },
+278:      { label: "Ingredient cost", value: "$2.18", detail: "Per serving" },
+279:      { label: "Stock saved", value: "$42", detail: "Near-expiry ingredients used" },
+280:    ],
+281:    notice: "Best opportunity: Strawberry Chantilly Parfait uses cream expiring in 4 days and has strong customer demand.",
+282:    tabs: ["Draft Flavors", "Suggestions", "Published"],
+283:    tableTitle: "Flavor ideas",
+284:    columns: ["Flavor", "Main ingredient", "Cost", "Margin", "Demand", "Action"],
+285:    rows: [
+286:      { name: "Strawberry Chantilly Parfait", detail: "Cream · strawberry · granola · rose", cells: ["Chantilly cream", "$2.18", "71%"], status: "High demand", action: "Edit" },
+287:      { name: "Mango Matcha Parfait", detail: "Mango · matcha cream · oat crunch", cells: ["Discounted matcha", "$2.34", "68%"], status: "Good fit", action: "Build" },
+288:      { name: "Blueberry Lemon Parfait", detail: "Blueberry · lemon curd · vanilla", cells: ["Blueberry compote", "$2.09", "70%"], status: "Uses stock", action: "Build" },
+289:      { name: "Coconut Cream Parfait", detail: "Coconut · mochi · toasted sesame", cells: ["Coconut cream", "$2.42", "66%"], status: "New idea", action: "Review" },
+290:    ],
+291:    sideTitle: "Ingredient opportunities",
+292:    sideIntro: "Ingredients that can inspire this week’s special.",
+293:    sideItems: [
+294:      { title: "Fresh strawberry cream", detail: "600g · expires in 2 days", badge: "Use first", image: "parfait-strawberry.jpg" },
+295:      { title: "Matcha powder", detail: "20% supplier discount", badge: "Great deal", image: "parfait-matcha.jpg" },
+296:      { title: "Customer favorite", detail: "Coffee Cream Parfait has 63 comeback votes", badge: "Popular", image: "parfait-coffee.png" },
+297:    ],
+298:  },
+299:  Inventory: {
+300:    title: "Inventory & Expiry",
+301:    intro: "Know what is in stock, what is running low, and what should be used first.",
+302:    primaryAction: "Add inventory",
+303:    pills: ["142 ingredients", "3 near expiry", "5 low-stock items"],
+304:    metrics: [
+305:      { label: "Stock value", value: "$2,840", detail: "Across all ingredients" },
+306:      { label: "Near-expiry value", value: "$38", detail: "3 ingredients need attention", tone: "danger-text" },
+307:      { label: "Low stock", value: "5", detail: "2 already on order" },
+308:      { label: "Waste avoided", value: "$126", detail: "This month" },
+309:    ],
+310:    notice: "Use heavy cream first. Coconut cream is available as a replacement and costs $3.30 less per kilogram.",
+311:    tabs: ["All Ingredients", "Use First", "Low Stock"],
+312:    tableTitle: "Ingredient stock",
+313:    columns: ["Ingredient", "Category", "On hand", "Unit cost", "Expiry", "Action"],
+314:    rows: [
+315:      { name: "Heavy cream", detail: "Sunshine Dairy · fridge 1", cells: ["Dairy", "1.4 L", "$5.90/L"], status: "Tomorrow", action: "Use first" },
+316:      { name: "Strawberries", detail: "FreshFarm · 500g punnets", cells: ["Fruit", "6 kg", "$3.20/kg"], status: "4 days", action: "View" },
+317:      { name: "Matcha powder", detail: "TopSource · discounted batch", cells: ["Dry goods", "3 kg", "$5.10/kg"], status: "21 days", action: "View" },
+318:      { name: "Coconut cream", detail: "GreenLeaf Supply · substitute", cells: ["Dairy alt.", "2 kg", "$3.50/kg"], status: "14 days", action: "Reorder" },
+319:      { name: "Blueberry compote", detail: "Berry & Bloom · fridge 2", cells: ["Toppings", "480 g", "$4.80/kg"], status: "4 days", action: "Use soon" },
+320:    ],
+321:    sideTitle: "Smart replacements",
+322:    sideIntro: "Lower-cost options when an ingredient is unavailable.",
+323:    sideItems: [
+324:      { title: "Heavy cream → Coconut cream", detail: "Save $3.30/kg · similar texture", badge: "Recommended" },
+325:      { title: "Mascarpone → Oat cream", detail: "Save $2.10/kg · vegan option", badge: "Alternative" },
+326:      { title: "Fresh mango → Frozen mango", detail: "Save 22% through Friday", badge: "Supplier deal" },
+327:    ],
+328:  },
+329:  Suppliers: {
+330:    title: "Suppliers & Ingredient Costs",
+331:    intro: "Compare prices, discounts, lead times, reliability, and ingredient replacements.",
+332:    primaryAction: "Create purchase order",
+333:    pills: ["8 active suppliers", "4 current deals", "1 price increase"],
+334:    metrics: [
+335:      { label: "Monthly spend", value: "$1,426", detail: "Down 6% from last month" },
+336:      { label: "Savings found", value: "$94", detail: "From active supplier deals" },
+337:      { label: "On-time delivery", value: "96%", detail: "Across all suppliers" },
+338:      { label: "Price changes", value: "3", detail: "One needs review", tone: "danger-text" },
+339:    ],
+340:    notice: "Frozen mango is 22% off at SweetRoots. The deal fits next week’s Mango Parfait special.",
+341:    tabs: ["Compare Prices", "Deals", "Supplier List"],
+342:    tableTitle: "Ingredient price comparison",
+343:    columns: ["Ingredient", "Supplier", "Unit cost", "Lead time", "Reliability", "Action"],
+344:    rows: [
+345:      { name: "Strawberries", detail: "500g punnet", cells: ["FreshFarm", "$3.20/kg", "2 days"], status: "Best price", action: "Add" },
+346:      { name: "Strawberries", detail: "500g punnet", cells: ["SweetRoots", "$3.80/kg", "1 day"], status: "Fastest", action: "Add" },
+347:      { name: "Frozen mango", detail: "5kg carton · 22% off", cells: ["SweetRoots", "$4.68/kg", "3 days"], status: "Deal", action: "Add" },
+348:      { name: "Heavy cream", detail: "2L carton · price up 18%", cells: ["PeakDairy", "$6.20/L", "2 days"], status: "Price rise", action: "Replace" },
+349:      { name: "Coconut cream", detail: "1L carton", cells: ["FreshFarm", "$2.40/L", "2 days"], status: "Save 61%", action: "Add" },
+350:    ],
+351:    sideTitle: "Order draft",
+352:    sideIntro: "Three items selected from the best available suppliers.",
+353:    sideItems: [
+354:      { title: "Strawberries · 10 units", detail: "FreshFarm", badge: "$32.00" },
+355:      { title: "Frozen mango · 8 units", detail: "SweetRoots", badge: "$37.44" },
+356:      { title: "Coconut cream · 4 units", detail: "FreshFarm", badge: "$9.60" },
+357:    ],
+358:  },
+359:  Orders: {
+360:    title: "Orders, Bills & Tax",
+361:    intro: "Track incoming stock, pay supplier bills, and review auto-filled tax details.",
+362:    primaryAction: "New purchase order",
+363:    pills: ["3 upcoming deliveries", "2 bills due", "Tax auto-filled"],
+364:    metrics: [
+365:      { label: "Open orders", value: "$893", detail: "Across 3 suppliers" },
+366:      { label: "Bills due", value: "$354", detail: "One payment is overdue", tone: "danger-text" },
+367:      { label: "Tax credits", value: "$87.40", detail: "From matched supplier bills" },
+368:      { label: "Next delivery", value: "Today", detail: "Sunshine Dairy · 10–11 AM" },
+369:    ],
+370:    notice: "Cream is low. Sunshine Dairy can add two cartons to today’s delivery before 9:30 AM.",
+371:    tabs: ["Purchase Orders", "Bills & Payments", "Tax Summary"],
+372:    tableTitle: "Upcoming deliveries",
+373:    columns: ["Supplier", "Order", "Items", "Total", "Delivery", "Action"],
+374:    rows: [
+375:      { name: "Sunshine Dairy Co.", detail: "Cream, butter and milk", cells: ["PO #2241", "18 items", "$284.50"], status: "Today 10–11", action: "Receive" },
+376:      { name: "Golden Grain Supplies", detail: "Flour, oats and almonds", cells: ["PO #2242", "24 items", "$196.00"], status: "Tomorrow", action: "Confirm" },
+377:      { name: "Berry & Bloom Farm", detail: "Strawberries, blueberries and mango", cells: ["PO #2239", "30 items", "$412.80"], status: "Thursday", action: "View" },
+378:      { name: "SweetRoot Co.", detail: "Sugar and vanilla · invoice #558", cells: ["Bill", "2 items", "$158.00"], status: "Overdue", action: "Pay now" },
+379:    ],
+380:    sideTitle: "Bills & payments",
+381:    sideIntro: "Payments requiring review or confirmation.",
+382:    sideItems: [
+383:      { title: "SweetRoot Co.", detail: "Invoice #558 · 4 days overdue", badge: "$158.00" },
+384:      { title: "Golden Grain", detail: "Invoice #612 · due Jul 16", badge: "$196.00" },
+385:      { title: "Cafe Essentials", detail: "Receipt matched and verified", badge: "Paid" },
+386:    ],
+387:  },
+388:};
+389:
+390:function WorkspacePage({ name, onAction }: { name: string; onAction: (label: string) => void }) {
+391:  const data = moduleData[name];
+392:  const [tab, setTab] = useState(data.tabs[0]);
+393:  return (
+394:    <div className="workspace-layout">
+395:      <main className="workspace-main" id="main">
+396:        <div className="page-heading">
+397:          <div><h1>{data.title}</h1><p>{data.intro}</p></div>
+398:          <div className="heading-actions">
+399:            <button className="secondary-button"><Icon src="85cf9.svg" /> Export</button>
+400:            <button className="primary-button" onClick={() => onAction(data.primaryAction)}>{data.primaryAction}</button>
+401:          </div>
+402:        </div>
+403:        <div className="summary-pills">{data.pills.map((pill) => <span key={pill}>{pill}</span>)}</div>
+404:        <section className="metrics" aria-label={`${name} summary`}>
+405:          {data.metrics.map((metric) => <Metric {...metric} key={metric.label} />)}
+406:        </section>
+407:        <div className="sync-banner workspace-notice" role="status"><span className="sync-dot" />{data.notice}<button onClick={() => onAction("View recommendation")}>Review</button></div>
+408:        <section aria-labelledby="workspace-table-title">
+409:          <div className="section-bar">
+410:            <div><h2 id="workspace-table-title">{data.tableTitle}</h2><p>Updated from your latest stock, supplier, and sales information.</p></div>
+411:            <div className="filter-tabs compact" role="group" aria-label={`Filter ${data.tableTitle}`}>
+412:              {data.tabs.map((item) => <button className={tab === item ? "active" : ""} key={item} onClick={() => setTab(item)}>{item}</button>)}
+413:            </div>
+414:          </div>
+415:          <div className="table-wrap workspace-table" role="region" aria-label={data.tableTitle} tabIndex={0}>
+416:            <table>
+417:              <thead><tr>{data.columns.map((column) => <th key={column}>{column}</th>)}</tr></thead>
+418:              <tbody>{data.rows.map((row) => (
+419:                <tr key={`${row.name}-${row.detail}`}>
+420:                  <td><span className="primary-cell"><b>{row.name}</b><small>{row.detail}</small></span></td>
+421:                  {row.cells.map((cell, index) => <td key={`${cell}-${index}`}>{cell}</td>)}
+422:                  <td><span className={`status ${row.status.toLowerCase().replaceAll(" ", "-")}`}>{row.status}</span></td>
+423:                  <td><button className="table-action" onClick={() => onAction(`${row.action}: ${row.name}`)}>{row.action}</button></td>
+424:                </tr>
+425:              ))}</tbody>
+426:            </table>
+427:          </div>
+428:        </section>
+429:      </main>
+430:      <aside className="workspace-side">
+431:        <div className="side-heading"><h2>{data.sideTitle}</h2><span>{data.sideItems.length}</span></div>
+432:        <p>{data.sideIntro}</p>
+433:        <div className="side-list">{data.sideItems.map((item) => (
+434:          <button className="side-item" key={item.title} onClick={() => onAction(item.title)}>
+435:            {item.image ? <img src={`${A}/${item.image}`} alt="" /> : <span className="side-marker" />}
+436:            <span><b>{item.title}</b><small>{item.detail}</small></span>
+437:            <strong>{item.badge}</strong>
+438:          </button>
+439:        ))}</div>
+440:        <div className="side-summary"><span>Need help?</span><h3>One task at a time</h3><p>Choose any row or card to see clear next steps before anything is saved.</p><button className="secondary-button">Show guided help</button></div>
+441:      </aside>
+442:    </div>
+443:  );
+444:}
+445:
+446:const recipes = [
+447:  { name: "Coffee Cream Parfait", category: "Original", image: "parfait-coffee.png", time: "12 min", serves: "8", cost: "$1.90", margin: "65%", stock: "All in stock", ingredients: ["Vanilla yogurt cream · 800g", "Espresso syrup · 160ml", "Oat granola · 240g", "Chocolate curls · 80g"], steps: ["Whip the vanilla yogurt cream until soft peaks form.", "Layer granola, espresso syrup, and cream in parfait glasses.", "Finish with chocolate curls and chill before serving."] },
+448:  { name: "Strawberry Shortcake Parfait", category: "Weekly Special", image: "parfait-strawberry.jpg", time: "18 min", serves: "10", cost: "$2.60", margin: "63%", stock: "Cream expires soon", ingredients: ["Strawberry cream · 1kg", "Vanilla cake crumb · 400g", "Berry compote · 300g", "Fresh strawberries · 20"], steps: ["Prepare the vanilla cake crumb.", "Layer cake crumb, berry compote, and strawberry cream in parfait glasses.", "Top with fresh strawberry and serve chilled."] },
+449:  { name: "Golden Caramel Parfait", category: "Original", image: "parfait-mango.jpg", time: "10 min", serves: "6", cost: "$1.40", margin: "69%", stock: "All in stock", ingredients: ["Vanilla yogurt · 600g", "Caramel granola · 240g", "Mango pieces · 300g", "Caramel drizzle · 60ml"], steps: ["Spoon vanilla yogurt into each parfait glass.", "Layer with mango and caramel granola.", "Finish with caramel drizzle and chill."] },
+450:  { name: "Matcha Cloud Parfait", category: "Weekly Special", image: "parfait-matcha.jpg", time: "15 min", serves: "8", cost: "$2.20", margin: "63%", stock: "Matcha discounted", ingredients: ["Matcha yogurt cream · 800g", "Mochi cubes · 320g", "Sesame granola · 160g", "White chocolate · 80g"], steps: ["Fold matcha into chilled yogurt cream.", "Layer with mochi and sesame granola in parfait glasses.", "Finish with white chocolate and chill."] },
+451:  { name: "Blueberry Lemon Parfait", category: "Original", image: "parfait-berry.jpg", time: "20 min", serves: "8", cost: "$1.60", margin: "60%", stock: "Compote expires soon", ingredients: ["Blueberry compote · 480g", "Vanilla yogurt · 640g", "Lemon granola · 240g", "Lemon zest · 20g"], steps: ["Spoon vanilla yogurt into chilled parfait glasses.", "Layer with blueberry compote and lemon granola.", "Finish with lemon zest."] },
+452:  { name: "Chocolate Mochi Parfait", category: "Archived", image: "parfait-chocolate.jpg", time: "16 min", serves: "8", cost: "$2.10", margin: "66%", stock: "One item low", ingredients: ["Chocolate yogurt cream · 720g", "Mochi · 320g", "Cocoa granola · 160g", "Chocolate curls · 80g"], steps: ["Prepare the chocolate yogurt cream.", "Layer cream, mochi, and cocoa granola in parfait glasses.", "Finish with chocolate curls."] },
+453:];
+454:
+455:function RecipesPage({ onAction }: { onAction: (label: string) => void }) {
+456:  const [query, setQuery] = useState("");
+457:  const [category, setCategory] = useState("All Recipes");
+458:  const [selected, setSelected] = useState(recipes[0]);
+459:  const categories = ["All Recipes", "Original", "Weekly Special", "Archived"];
+460:  const shown = recipes.filter((recipe) => (category === "All Recipes" || recipe.category === category) && recipe.name.toLowerCase().includes(query.toLowerCase()));
+461:  return (
+462:    <div className="recipes-layout">
+463:      <main className="recipes-main" id="main">
+464:        <div className="page-heading">
+465:          <div><h1>Recipes</h1><p>Every recipe, ingredient quantity, cost, and preparation step in one place.</p></div>
+466:          <div className="heading-actions"><button className="secondary-button">Print recipes</button><button className="primary-button" onClick={() => onAction("Create a new recipe")}>New recipe</button></div>
+467:        </div>
+468:        <div className="summary-pills"><span>6 total recipes</span><span>4 active today</span><span>2 use expiring stock</span></div>
+469:        <section className="metrics" aria-label="Recipe summary">
+470:          <Metric label="Active recipes" value="4" detail="Available to make today" />
+471:          <Metric label="Average margin" value="64%" detail="Across the complete menu" />
+472:          <Metric label="Ready to make" value="5" detail="Ingredients currently available" />
+473:          <Metric label="Need attention" value="2" detail="Use expiring stock first" tone="danger-text" />
+474:        </section>
+475:        <div className="recipe-tools">
+476:          <label className="search-box"><span className="sr-only">Search recipes</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search recipes by name" /></label>
+477:          <div className="filter-tabs compact" role="group" aria-label="Filter recipes">{categories.map((item) => <button className={category === item ? "active" : ""} key={item} onClick={() => setCategory(item)}>{item}</button>)}</div>
+478:        </div>
+479:        <section className="recipe-grid" aria-label="Recipe library">
+480:          {shown.map((recipe) => (
+481:            <button className={selected.name === recipe.name ? "recipe-card selected" : "recipe-card"} key={recipe.name} onClick={() => setSelected(recipe)}>
+482:              <img src={`${A}/${recipe.image}`} alt="" />
+483:              <span className="recipe-card-body">
+484:                <span className="recipe-card-top"><span className="tag yellow">{recipe.category}</span><strong>{recipe.margin} margin</strong></span>
+485:                <b>{recipe.name}</b>
+486:                <small>{recipe.time} · Makes {recipe.serves} · {recipe.cost} each</small>
+487:                <span className={recipe.stock.includes("expires") ? "stock-warning" : "stock-ok"}>{recipe.stock}</span>
+488:              </span>
+489:            </button>
+490:          ))}
+491:          {shown.length === 0 && <div className="empty-recipes"><h2>No recipes found</h2><p>Try a different name or category.</p></div>}
+492:        </section>
+493:      </main>
+494:      <aside className="recipe-detail" aria-live="polite">
+495:        <div className="detail-hero"><img src={`${A}/${selected.image}`} alt="" /><span><small>{selected.category}</small><h2>{selected.name}</h2><p>{selected.time} preparation · Makes {selected.serves}</p></span></div>
+496:        <div className="detail-costs"><span><small>Cost each</small><b>{selected.cost}</b></span><span><small>Margin</small><b>{selected.margin}</b></span><span><small>Stock</small><b>{selected.stock}</b></span></div>
+497:        <section className="detail-section"><div className="card-title"><h3>Ingredients</h3><span>Makes {selected.serves}</span></div><ul>{selected.ingredients.map((item) => <li key={item}>{item}</li>)}</ul></section>
+498:        <section className="detail-section"><div className="card-title"><h3>Method</h3></div><ol>{selected.steps.map((step, index) => <li key={step}><span>{index + 1}</span>{step}</li>)}</ol></section>
+499:        <div className="detail-actions"><button className="secondary-button" onClick={() => onAction(`Edit ${selected.name}`)}>Edit recipe</button><button className="primary-button" onClick={() => onAction(`Start a batch of ${selected.name}`)}>Start batch</button></div>
+500:      </aside>
+501:    </div>
+502:  );
+503:}
+504:
+505:const taxExpenses = [
+506:  { id: 1, date: "Jul 12", supplier: "Sunshine Dairy", category: "Ingredients", amount: 284.5, tax: 22.76, status: "Matched" },
+507:  { id: 2, date: "Jul 11", supplier: "SweetRoot Co.", category: "Ingredients", amount: 158, tax: 12.64, status: "Review" },
+508:  { id: 3, date: "Jul 10", supplier: "Cafe Essentials", category: "Packaging", amount: 67.2, tax: 5.38, status: "Matched" },
+509:  { id: 4, date: "Jul 8", supplier: "Verifone", category: "Processing fees", amount: 86.4, tax: 6.91, status: "Matched" },
+510:];
+511:
+512:function TaxesPage({ onAction }: { onAction: (label: string) => void }) {
+513:  const [period, setPeriod] = useState("Jul 1–13, 2025");
+514:  const [included, setIncluded] = useState(taxExpenses.map((item) => item.id));
+515:  const [filed, setFiled] = useState(false);
+516:  const inputCredits = taxExpenses.filter((item) => included.includes(item.id)).reduce((sum, item) => sum + item.tax, 0);
+517:  const salesTax = 421;
+518:  const owing = salesTax - inputCredits;
+519:  const toggleExpense = (id: number) => setIncluded((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
+
+(Showing lines 220-519 of 655. Use offset=520 to continue.)

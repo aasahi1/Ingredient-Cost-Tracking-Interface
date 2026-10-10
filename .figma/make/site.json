@@ -1,0 +1,12 @@
+{
+  "title": "Grandma's Bakery | Ingredient & Sales",
+  "language": "en",
+  "description": "Effortlessly manage ingredient costs, track sales, and reduce waste with this user-friendly interface designed for small business owners to optimize their menu.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
