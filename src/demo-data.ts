@@ -1,4 +1,4 @@
-export const A = "/assets";
+export const A = `${import.meta.env.BASE_URL}assets`;
 
 export type Flavor = {
   name: string;
